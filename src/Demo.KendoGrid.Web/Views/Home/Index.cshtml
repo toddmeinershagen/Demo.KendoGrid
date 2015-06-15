@@ -1,0 +1,65 @@
+﻿
+@{
+	ViewBag.Title = "Products";
+}
+
+<h2>Products</h2>
+
+<!-- Define the HTML div that will hold the Grid -->
+
+<div id="grid"></div>
+
+<!-- Initialize the Grid -->
+@section scripts {
+	<script>
+
+		$(document).ready(function() {
+			$("#grid").kendoGrid({
+				dataSource: {
+					type: "odata-v4",
+					transport: {
+						read: "/odata/Products"
+					},
+					schema: {
+						model: {
+							fields: {
+								Id: { type: "number" },
+								Name: { type: "string" },
+								Price: { type: "number" },
+								Category: { type: "string" }
+							}
+						}
+					},
+					pageSize: 20,
+					serverPaging: true,
+					serverFiltering: true,
+					serverSorting: true
+				},
+				height: 550,
+				filterable: true,
+				sortable: true,
+				pageable: true,
+				columns: [
+					{
+						field: "Id",
+						filterable: false
+					},
+					{
+						field: "Name",
+						title: "Name"
+					},
+					{
+						field: "Price",
+						title: "Price",
+						format: "{0:c}"
+					},
+					{
+						field: "Category",
+						title: "Category"
+					}
+				]
+			});
+		});
+
+	</script>
+}

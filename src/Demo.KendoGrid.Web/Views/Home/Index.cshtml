@@ -13,7 +13,7 @@
 @section scripts {
 	<script>
 
-		$(document).ready(function() {
+		$(document).ready(function () {
 			$("#grid").kendoGrid({
 				dataSource: {
 					type: "odata-v4",
@@ -39,6 +39,7 @@
 				filterable: true,
 				sortable: true,
 				pageable: true,
+				groupable: true,
 				columns: [
 					{
 						field: "Id",

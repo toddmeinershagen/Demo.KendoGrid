@@ -1,4 +1,6 @@
-﻿namespace Demo.KendoGrid.Web.Models
+﻿using System;
+
+namespace Demo.KendoGrid.Web.Models
 {
 	public class Product
 	{
